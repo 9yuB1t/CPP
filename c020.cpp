@@ -27,4 +27,5 @@ int main()
         cout << "x는 y보다 작습니다" << endl;
     }
 
+    return 0;
 }
