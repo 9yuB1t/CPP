@@ -14,4 +14,5 @@ int main()
     cout << "x = " << --x << endl;
 
     return 0;
+    
 }

@@ -27,4 +27,5 @@ int main()
         cout << "x는 20보다 작거나 같지 않습니다" << endl;
 
     return 0;
+    
 }
