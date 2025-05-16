@@ -11,4 +11,5 @@ int main()
     cout << "입력한 숫자는 " << number << "입니다." << endl;
 
     return 0;
+    
 }
