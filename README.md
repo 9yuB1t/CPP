@@ -3,7 +3,7 @@
 ## 규칙
 - 매일 매일 3~5문제 풀이
 
-###commit message 형식
+### commit message 형식
 [MM/DD 000~000]
 05/17 026~030
 
