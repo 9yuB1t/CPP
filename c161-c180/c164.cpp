@@ -1,34 +1,29 @@
 #include <iostream>
 #include <bitset>
-#include <string>
 
 using namespace std;
 
 int main() {
-    bitset<8> data1(1);
-    bitset<8> data2(0x01);
+    bitset<4> data1(6);    // 0110
+    bitset<4> data2(0x09); // 1001
 
-    cout << "data1 : " << data1 << endl;
-    cout << "data2 : " << data2 << endl;
+    auto result = data1 | data2;
+    cout << "data1 | data2 = " << result << endl;
 
-    data1.set(0, false);
-    data1.set(2, 1);
+    result = data1 & data2;
+    cout << "data1 & data2 = " << result << endl;
 
-    cout << endl << "== data1 ==" << endl;
-    cout << "data1 : " << data1 << endl;
+    result = data1 ^ data2;
+    cout << "data1 ^ data2 = " << result << endl;
 
-    data2[4] = false;
-    data2.flip(5);
+    result = data1 << 1;
+    cout << "data1 << 1 = " << result << endl;
 
-    cout << endl << "== data2 ==" << endl;
-    cout << "data2 : " << data2 << endl;
+    result = data1 >> 1;
+    cout << "data1 >> 1 = " << result << endl;
 
-    string data1_str = data1.to_string();
-    int data2_int = data2.to_ulong();
-
-    cout << endl << "== 변환 ==" << endl;
-    cout << "data1 : " << data1_str << endl;
-    cout << "data2 : " << data2_int << endl;
+    result = ~data1;
+    cout << "~data1 = " << result << endl;
 
     return 0;
 }

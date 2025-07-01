@@ -1,29 +1,23 @@
 #include <iostream>
-#include <bitset>
 
 using namespace std;
 
+auto func1 = []() { cout << "Lambda Function" << endl; };
+auto func2 = [](int x, int y) -> bool { return x < y; };
+
 int main() {
-    bitset<4> data1(6);    // 0110
-    bitset<4> data2(0x09); // 1001
+    int x = 2;
 
-    auto result = data1 | data2;
-    cout << "data1 | data2 = " << result << endl;
+    auto func3 = [=](int y) {
+        func1();
+        cout << "x < y = " << func2(x, y) << endl;
+    };
 
-    result = data1 & data2;
-    cout << "data1 & data2 = " << result << endl;
+    func3(4);
 
-    result = data1 ^ data2;
-    cout << "data1 ^ data2 = " << result << endl;
+    auto func4 = [=](int y) { return x * x + y * y; };
 
-    result = data1 << 1;
-    cout << "data1 << 1 = " << result << endl;
-
-    result = data1 >> 1;
-    cout << "data1 >> 1 = " << result << endl;
-
-    result = ~data1;
-    cout << "~data1 = " << result << endl;
+    cout << "x * x + y * y = " << func4(5) << endl;
 
     return 0;
 }

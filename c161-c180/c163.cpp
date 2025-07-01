@@ -5,27 +5,30 @@
 using namespace std;
 
 int main() {
-    bitset<8> data1(100);
-    bitset<8> data2(0x78);
-    bitset<8> data3(string("11110000"));
+    bitset<8> data1(1);
+    bitset<8> data2(0x01);
 
     cout << "data1 : " << data1 << endl;
     cout << "data2 : " << data2 << endl;
-    cout << "data3 : " << data3 << endl;
 
-    data1.set();
+    data1.set(0, false);
+    data1.set(2, 1);
 
     cout << endl << "== data1 ==" << endl;
-    cout << "data1 all: " << data1.all() << '\n';
-    cout << "data1 any: " << data1.any() << '\n';
-    cout << "data1 none: " << data1.none() << '\n';
+    cout << "data1 : " << data1 << endl;
 
-    data2.reset();
+    data2[4] = false;
+    data2.flip(5);
 
     cout << endl << "== data2 ==" << endl;
-    cout << "data2 all: " << data2.all() << '\n';
-    cout << "data2 any: " << data2.any() << '\n';
-    cout << "data2 none: " << data2.none() << '\n';
+    cout << "data2 : " << data2 << endl;
+
+    string data1_str = data1.to_string();
+    int data2_int = data2.to_ulong();
+
+    cout << endl << "== 변환 ==" << endl;
+    cout << "data1 : " << data1_str << endl;
+    cout << "data2 : " << data2_int << endl;
 
     return 0;
 }
