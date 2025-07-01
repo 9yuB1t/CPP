@@ -1,36 +1,31 @@
 #include <iostream>
-#include <map>
+#include <bitset>
 #include <string>
 
 using namespace std;
 
-void Print(const map<int, string> &data) {
-    cout << "== Print == " << endl;
-
-    for (auto iter = data.begin(); iter != data.end(); ++iter)
-        cout << iter->first << " : " << iter->second << ", ";
-
-    cout << endl;
-}
-
 int main() {
-    map<int, string> data;
-    data.insert({ 5, "test1" });
-    data.insert({ 3, "test2" });
-    data.insert({ 11, "test3" });
+    bitset<8> data1(100);
+    bitset<8> data2(0x78);
+    bitset<8> data3(string("11110000"));
 
-    data[3] = "test 수정";
+    cout << "data1 : " << data1 << endl;
+    cout << "data2 : " << data2 << endl;
+    cout << "data3 : " << data3 << endl;
 
-    auto result = data.find(11);
+    data1.set();
 
-    if (result != data.end())
-        cout << "== 검색 성공 : " << result->first << ", " << result->second << endl;
-    else
-        cout << "== 검색 실패!! ==" << endl;
+    cout << endl << "== data1 ==" << endl;
+    cout << "data1 all: " << data1.all() << '\n';
+    cout << "data1 any: " << data1.any() << '\n';
+    cout << "data1 none: " << data1.none() << '\n';
 
-    data.erase(5);
+    data2.reset();
 
-    Print(data);
+    cout << endl << "== data2 ==" << endl;
+    cout << "data2 all: " << data2.all() << '\n';
+    cout << "data2 any: " << data2.any() << '\n';
+    cout << "data2 none: " << data2.none() << '\n';
 
     return 0;
 }
